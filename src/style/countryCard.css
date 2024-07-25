@@ -1,0 +1,28 @@
+.countryCardContainer {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.countryCardContainer:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.countryItem {
+  text-decoration: none;
+  color: inherit;
+}
+
+.countryItem h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.countryItem p {
+  margin: 4px 0;
+  color: #666;
+}
