@@ -13,8 +13,8 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/country" element={<CountryPage />} />
-          <Route path="/graph" element={<GraphPage />} />
+          <Route path="/country/:cur_unit" element={<CountryPage />} />
+          <Route path="/graph/:cur_unit" element={<GraphPage />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>

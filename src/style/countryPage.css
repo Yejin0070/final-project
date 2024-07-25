@@ -1,0 +1,62 @@
+.countryImformationContainer {
+  margin: 20px;
+  padding: 20px;
+  background-color: rgba(57, 57, 112, 0.381);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.countryImformationContainer h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.countryImformationContainer h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: rgb(170, 226, 226);
+}
+
+.countryImformationContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.countryImformationContainer li {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.graphViewContainer {
+  margin: 10px;
+  padding: 15px;
+}
+
+.graphViewContainer a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.calculator {
+  margin: 10px;
+  padding: 15px;
+}
+
+.before,
+.after {
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.before:focus,
+.after:focus {
+  border-color: rgb(0, 8, 50);
+}
