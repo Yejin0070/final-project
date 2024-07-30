@@ -1,10 +1,15 @@
 .countryCardContainer {
+  display: flex;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 16px;
-  margin: 8px;
+  margin: 8px 0;
   background-color: #f9f9f9;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .countryCardContainer:hover {
@@ -25,4 +30,24 @@
 .countryItem p {
   margin: 4px 0;
   color: #666;
+}
+
+/* 즐겨찾기 */
+
+.countryCardInfor {
+  width: 85%;
+}
+
+.favorite {
+  display: flex;
+  flex-direction: row;
+  width: 15%;
+  align-items: center;
+  cursor: pointer;
+}
+
+.favorite input[type="checkbox"] {
+  margin-right: 10px;
+  width: 1em;
+  height: 1em;
 }

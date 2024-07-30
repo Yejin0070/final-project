@@ -11,9 +11,10 @@
 }
 
 .main {
-  width: 100%;
   background-color: #ffffff;
 }
+
+/* 검색바 */
 
 .searchContainer {
   display: flex;
@@ -36,7 +37,7 @@ input:focus {
   border-color: rgb(0, 8, 50);
 }
 
-button {
+.searchContainer button {
   padding: 10px 20px;
   border: 1px solid rgb(0, 8, 50);
   border-radius: 0 5px 5px 0;
@@ -47,13 +48,48 @@ button {
   transition: background-color 0.3s, border-color 0.3s;
 }
 
-button:hover {
+.searchContainer button:hover {
   background-color: rgb(35, 45, 91);
   border-color: rgb(35, 45, 91);
 }
 
-.countryList {
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+/* 즐겨찾기 */
+.favoritesContainer {
   margin: 5px;
+}
+
+.favoritesContainer button {
+  padding: 10px 12px;
+  margin: 5px;
+  font-size: 17px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+}
+
+.favoritesContainer button.active {
+  font-weight: bold;
+  border-bottom: 3px solid #212f59;
+}
+
+/* 나라 리스트 */
+
+.countryList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
   border: 1px solid black;
   color: black;
+  width: 70%;
+  padding: 16px;
+  box-sizing: border-box;
 }
