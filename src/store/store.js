@@ -1,218 +1,23 @@
 import { create } from "zustand";
-import axios from "axios";
+import { dummyData } from "./static";
+// import axios from "axios";
 
-const useStore = create((set) => ({
+const useExchangeRateStore = create((set) => ({
   countries: [],
   fetchData: async () => {
-    try {
-      const currentDate = getCurrentDate();
-      const response = await axios.post("http://localhost:3001/api/exchange", {
-        searchdate: currentDate,
-        authkey: "4pnxrKwL9nYsl6PqcrWElH1QQlj1f2Nk",
-      });
-      set({ countries: response.data });
-    } catch (error) {
-      console.error("Failed to fetch data:", error);
-    }
-    //   const dummyData = [
-    //     {
-    //       result: 1,
-    //       cur_unit: "AED",
-    //       ttb: "373.73",
-    //       tts: "381.28",
-    //       deal_bas_r: "377.51",
-    //       bkpr: "377",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "377",
-    //       kftc_deal_bas_r: "377.51",
-    //       cur_nm: "아랍에미리트 디르함",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "AUD",
-    //       ttb: "919.66",
-    //       tts: "938.23",
-    //       deal_bas_r: "928.95",
-    //       bkpr: "928",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "928",
-    //       kftc_deal_bas_r: "928.95",
-    //       cur_nm: "호주 달러",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "BHD",
-    //       ttb: "3,641.29",
-    //       tts: "3,714.86",
-    //       deal_bas_r: "3,678.08",
-    //       bkpr: "3,678",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "3,678",
-    //       kftc_deal_bas_r: "3,678.08",
-    //       cur_nm: "바레인 디나르",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "BND",
-    //       ttb: "1,021.38",
-    //       tts: "1,042.01",
-    //       deal_bas_r: "1,031.7",
-    //       bkpr: "1,031",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1,031",
-    //       kftc_deal_bas_r: "1,031.7",
-    //       cur_nm: "브루나이 달러",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "CAD",
-    //       ttb: "1,001.44",
-    //       tts: "1,021.67",
-    //       deal_bas_r: "1,011.56",
-    //       bkpr: "1,011",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1,011",
-    //       kftc_deal_bas_r: "1,011.56",
-    //       cur_nm: "캐나다 달러",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "CHF",
-    //       ttb: "1,545.87",
-    //       tts: "1,577.1",
-    //       deal_bas_r: "1,561.49",
-    //       bkpr: "1,561",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1,561",
-    //       kftc_deal_bas_r: "1,561.49",
-    //       cur_nm: "스위스 프랑",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "CNH",
-    //       ttb: "188.57",
-    //       tts: "192.38",
-    //       deal_bas_r: "190.48",
-    //       bkpr: "190",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "190",
-    //       kftc_deal_bas_r: "190.48",
-    //       cur_nm: "위안화",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "DKK",
-    //       ttb: "200.53",
-    //       tts: "204.58",
-    //       deal_bas_r: "202.56",
-    //       bkpr: "202",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "202",
-    //       kftc_deal_bas_r: "202.56",
-    //       cur_nm: "덴마아크 크로네",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "EUR",
-    //       ttb: "1,496.14",
-    //       tts: "1,526.37",
-    //       deal_bas_r: "1,511.26",
-    //       bkpr: "1,511",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1,511",
-    //       kftc_deal_bas_r: "1,511.26",
-    //       cur_nm: "유로",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "GBP",
-    //       ttb: "1,775.56",
-    //       tts: "1,811.43",
-    //       deal_bas_r: "1,793.5",
-    //       bkpr: "1,793",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1,793",
-    //       kftc_deal_bas_r: "1,793.5",
-    //       cur_nm: "영국 파운드",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "HKD",
-    //       ttb: "175.75",
-    //       tts: "179.3",
-    //       deal_bas_r: "177.53",
-    //       bkpr: "177",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "177",
-    //       kftc_deal_bas_r: "177.53",
-    //       cur_nm: "홍콩 달러",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "IDR(100)",
-    //       ttb: "8.47",
-    //       tts: "8.64",
-    //       deal_bas_r: "8.56",
-    //       bkpr: "8",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "8",
-    //       kftc_deal_bas_r: "8.56",
-    //       cur_nm: "인도네시아 루피아",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "JPY(100)",
-    //       ttb: "872.99",
-    //       tts: "890.62",
-    //       deal_bas_r: "881.81",
-    //       bkpr: "881",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "881",
-    //       kftc_deal_bas_r: "881.81",
-    //       cur_nm: "일본 옌",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "KRW",
-    //       ttb: "0",
-    //       tts: "0",
-    //       deal_bas_r: "1",
-    //       bkpr: "1",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1",
-    //       kftc_deal_bas_r: "1",
-    //       cur_nm: "한국 원",
-    //     },
-    //     {
-    //       result: 1,
-    //       cur_unit: "USD",
-    //       ttb: "1,101.00",
-    //       tts: "1,122.00",
-    //       deal_bas_r: "1,111.50",
-    //       bkpr: "1,111",
-    //       yy_efee_r: "0",
-    //       ten_dd_efee_r: "0",
-    //       kftc_bkpr: "1,111",
-    //       kftc_deal_bas_r: "1,111.50",
-    //       cur_nm: "미국 달러",
-    //     },
-    //   ];
+    // try {
+    //   const currentDate = getCurrentDate();
+    //   const response = await axios.post("http://localhost:3001/api/exchange", {
+    //     searchdate: currentDate,
+    //     authkey: "4pnxrKwL9nYsl6PqcrWElH1QQlj1f2Nk",
+    //   });
+    //   set({ countries: response.data });
+    // } catch (error) {
+    //   console.error("Failed to fetch data:", error);
+    // }
+    const data = dummyData[Math.floor(dummyData.length * Math.random())];
 
-    //   set({ countries: dummyData });
+    set({ countries: data });
   },
 }));
 
@@ -225,4 +30,4 @@ const getCurrentDate = () => {
   return `${year}${month}${day}`;
 };
 
-export default useStore;
+export default useExchangeRateStore;

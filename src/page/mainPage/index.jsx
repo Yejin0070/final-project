@@ -1,19 +1,15 @@
 import "../../style/common.css";
 import "../../style/mainPage.css";
 import { useState, useEffect } from "react";
-import useStore from "../../store/store";
 import CountryCard from "../../component/countryCard";
 import SearchBar from "../../component/searchBar";
+import useExchangeRate from "../../hook/useExchangeRate";
 
 export default function MainPage() {
-  const { countries, fetchData } = useStore();
+  const countries = useExchangeRate();
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [isFavoritesView, setIsFavoritesView] = useState(false);
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   useEffect(() => {
     setFilteredCountries(countries);

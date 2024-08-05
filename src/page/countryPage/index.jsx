@@ -1,13 +1,13 @@
 import "../../style/common.css";
 import "../../style/countryPage.css";
 import { useParams } from "react-router-dom";
-import useStore from "../../store/store";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import useExchangeRate from "../../hook/useExchangeRate";
 
 export default function CountryPage() {
   const { cur_unit } = useParams();
-  const { countries } = useStore();
+  const countries = useExchangeRate();
 
   const country = countries.find((country) => country.cur_unit === cur_unit);
 
@@ -16,9 +16,10 @@ export default function CountryPage() {
 
   const handleKrwChange = (e) => {
     const value = parseFloat(e.target.value.replace(/,/g, ""));
+    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
     setKrwValue(e.target.value);
-    if (value && country?.deal_bas_r) {
-      setForeignValue((value / country.deal_bas_r).toFixed(2));
+    if (value && dealBasR) {
+      setForeignValue((value / dealBasR).toFixed(2));
     } else {
       setForeignValue("");
     }
@@ -26,9 +27,10 @@ export default function CountryPage() {
 
   const handleForeignChange = (e) => {
     const value = parseFloat(e.target.value.replace(/,/g, ""));
+    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
     setForeignValue(e.target.value);
-    if (value && country?.deal_bas_r) {
-      setKrwValue((value * country.deal_bas_r).toFixed(2));
+    if (value && dealBasR) {
+      setKrwValue((value * dealBasR).toFixed(2));
     } else {
       setKrwValue("");
     }
