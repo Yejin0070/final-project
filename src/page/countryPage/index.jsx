@@ -82,25 +82,27 @@ export default function CountryPage() {
       </div>
       <div className="calculator">
         <p>환율 계산</p>
-        <div className="beforeContainer">
-          <label>KRW:</label>
-          <input
-            className="before"
-            value={krwValue}
-            onChange={handleKrwChange}
-            type="number"
-          />
-          <span> 원</span>
-        </div>
-        <div className="afterContainer">
-          <label>{country.cur_unit}:</label>
-          <input
-            className="after"
-            value={foreignValue}
-            onChange={handleForeignChange}
-            type="number"
-          />
-          <span> {foreignCurrencyUnit}</span>
+        <div className="calculatorContainer">
+          <div className="beforeContainer">
+            <label>KRW:</label>
+            <input
+              className="before"
+              value={krwValue}
+              onChange={handleKrwChange}
+              type="number"
+            />
+            <span> 원</span>
+          </div>
+          <div className="afterContainer">
+            <label>{country.cur_unit}:</label>
+            <input
+              className="after"
+              value={foreignValue}
+              onChange={handleForeignChange}
+              type="number"
+            />
+            <span> {foreignCurrencyUnit}</span>
+          </div>
         </div>
       </div>
     </div>

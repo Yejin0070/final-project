@@ -1,26 +1,8 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainPage from "./page/mainPage";
 import CountryPage from "./page/countryPage";
 import GraphPage from "./page/graphPage";
-import SideBar from "./component/sideBar";
-import "./style/app.css";
-
-const Layout = ({ children }) => {
-  const location = useLocation();
-  const isMainPage = location.pathname === "/";
-
-  return (
-    <div className="app">
-      {!isMainPage && <SideBar />}
-      <div className={!isMainPage ? "main-content" : ""}>{children}</div>
-    </div>
-  );
-};
+import Layout from "./component/Layout/layout";
 
 function App() {
   return (

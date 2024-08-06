@@ -61,7 +61,7 @@ export default function MainPage() {
   }, [controls]);
 
   return (
-    <div>
+    <div className="mainPage">
       <div className="header">Exchange Rate Village</div>
       <motion.div
         className="main"

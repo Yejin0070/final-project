@@ -17,11 +17,12 @@
 
 .sideBar ul {
   list-style-type: none;
+  margin: 5px;
   padding: 0;
 }
 
 .sideBar li {
-  margin: 15px 0;
+  margin: 17px 0;
 }
 
 .sideBar li a {
@@ -32,4 +33,5 @@
 
 .sideBar li.active a {
   color: rgb(6, 25, 118);
+  text-decoration: rgb(128, 132, 153) double underline;
 }
