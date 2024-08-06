@@ -1,9 +1,10 @@
 import "../../style/common.css";
 import "../../style/countryPage.css";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useExchangeRate from "../../hook/useExchangeRate";
+import SideBar from "../../component/sideBar";
+import useToNumber from "../../hook/useToNumber";
 
 export default function CountryPage() {
   const { cur_unit } = useParams();
@@ -17,6 +18,7 @@ export default function CountryPage() {
   const handleKrwChange = (e) => {
     const value = parseFloat(e.target.value.replace(/,/g, ""));
     const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+    // const [value, dealBasR] = useToNumber(e, country);
     setKrwValue(e.target.value);
     if (value && dealBasR) {
       setForeignValue((value / dealBasR).toFixed(2));
@@ -38,13 +40,24 @@ export default function CountryPage() {
 
   useEffect(() => {
     if (country && country.deal_bas_r) {
+      // console.log(country.deal_bas_r);
+      const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
       const initialForeignValue = 1; // 외국 통화 단위를 1로 설정
       setForeignValue(initialForeignValue.toString());
-      setKrwValue((initialForeignValue * country.deal_bas_r).toFixed(2));
+      setKrwValue((initialForeignValue * dealBasR).toFixed(2));
     }
   }, [country]);
 
+  useEffect(() => {
+    document.body.classList.add("countryPage", "transition");
+    window.scrollTo(0, 0);
+    return () => {
+      document.body.classList.remove("countryPage", "transition");
+    };
+  }, []);
+
   if (!country) {
+    // console.log("a");
     return <div>Loading...</div>;
   }
 
@@ -52,9 +65,7 @@ export default function CountryPage() {
 
   return (
     <div className="countryPage">
-      <div className="moveToMainpageContainer">
-        <Link to={`/`}>목록 보기</Link>
-      </div>
+      <SideBar curUnit={cur_unit} />
       <h1>{country.cur_nm}</h1>
       <div className="countryImformationContainer">
         <h2>{country.cur_unit}</h2>
@@ -68,9 +79,6 @@ export default function CountryPage() {
           <li>매매 기준율(한국금융투자협회): {country.kftc_deal_bas_r}</li>
           <li>장부 가격(한국금융투자협회): {country.kftc_bkpr}</li>
         </ul>
-        <div className="graphViewContainer">
-          <Link to={`/graph/${country.cur_unit}`}>그래프 보기</Link>
-        </div>
       </div>
       <div className="calculator">
         <p>환율 계산</p>

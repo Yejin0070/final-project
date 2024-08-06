@@ -1,23 +1,50 @@
-import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 import MainPage from "./page/mainPage";
 import CountryPage from "./page/countryPage";
 import GraphPage from "./page/graphPage";
+import SideBar from "./component/sideBar";
+import "./style/app.css";
 
-const queryClient = new QueryClient();
+const Layout = ({ children }) => {
+  const location = useLocation();
+  const isMainPage = location.pathname === "/";
+
+  return (
+    <div className="app">
+      {!isMainPage && <SideBar />}
+      <div className={!isMainPage ? "main-content" : ""}>{children}</div>
+    </div>
+  );
+};
 
 function App() {
   return (
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/country/:cur_unit" element={<CountryPage />} />
-          <Route path="/graph/:cur_unit" element={<GraphPage />} />
-        </Routes>
-      </QueryClientProvider>
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="/country/:cur_unit"
+          element={
+            <Layout>
+              <CountryPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/graph/:cur_unit"
+          element={
+            <Layout>
+              <GraphPage />
+            </Layout>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

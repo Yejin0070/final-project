@@ -1,6 +1,7 @@
 import "../../style/common.css";
 import "../../style/mainPage.css";
 import { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import CountryCard from "../../component/countryCard";
 import SearchBar from "../../component/searchBar";
 import useExchangeRate from "../../hook/useExchangeRate";
@@ -10,6 +11,7 @@ export default function MainPage() {
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [isFavoritesView, setIsFavoritesView] = useState(false);
+  const controls = useAnimation();
 
   useEffect(() => {
     setFilteredCountries(countries);
@@ -37,10 +39,36 @@ export default function MainPage() {
     );
   };
 
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const headerElement = document.querySelector(".header");
+    const bodyElement = document.body;
+
+    if (scrollY > 50) {
+      headerElement.classList.add("small");
+      bodyElement.classList.add("light");
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      headerElement.classList.remove("small");
+      bodyElement.classList.remove("light");
+      controls.start({ opacity: 0, y: 50 });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls]);
+
   return (
     <div>
       <div className="header">Exchange Rate Village</div>
-      <div className="main">
+      <motion.div
+        className="main"
+        initial={{ opacity: 0, y: 50 }}
+        animate={controls}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <SearchBar
           countries={countries}
           setFilteredCountries={setFilteredCountries}
@@ -75,7 +103,7 @@ export default function MainPage() {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

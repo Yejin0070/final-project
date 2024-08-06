@@ -1,4 +1,3 @@
-// src/component/SearchBar/SearchBar.js
 import React, { useState } from "react";
 
 export default function SearchBar({ countries, setFilteredCountries }) {

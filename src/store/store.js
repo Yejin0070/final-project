@@ -15,7 +15,8 @@ const useExchangeRateStore = create((set) => ({
     // } catch (error) {
     //   console.error("Failed to fetch data:", error);
     // }
-    const data = dummyData[Math.floor(dummyData.length * Math.random())];
+    const currentData = getCurrentDate() % 7;
+    const data = dummyData[currentData];
 
     set({ countries: data });
   },
