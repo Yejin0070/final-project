@@ -13,12 +13,14 @@
   margin-bottom: 20px;
   color: #1f2429;
   text-align: center;
+  border: 1px solid #6a8aaa;
+  padding: 7px;
 }
 
 .sideBar ul {
   list-style-type: none;
   margin: 5px;
-  padding: 0;
+  padding: 7px;
 }
 
 .sideBar li {

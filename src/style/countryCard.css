@@ -34,14 +34,14 @@
 
 /* 즐겨찾기 */
 
-.countryCardInfor {
+.countryCardInformation {
   width: 85%;
 }
 
 .favorite {
   display: flex;
   flex-direction: row;
-  width: 15%;
+  width: 124.9px;
   align-items: center;
   cursor: pointer;
 }

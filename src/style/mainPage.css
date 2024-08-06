@@ -44,6 +44,13 @@ body.light {
   position: relative;
 }
 
+@media (max-width: 560px) {
+  .main {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 /* 검색바 */
 
 .searchContainer {
@@ -122,4 +129,6 @@ input:focus {
   width: 70%;
   padding: 16px;
   box-sizing: border-box;
+  /* 수정중 */
+  min-width: 551px;
 }
