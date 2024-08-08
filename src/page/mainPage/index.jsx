@@ -1,7 +1,8 @@
 import "../../style/common.css";
 import "../../style/mainPage.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import CountryCard from "../../component/countryCard";
 import SearchBar from "../../component/searchBar";
 import useExchangeRate from "../../hook/useExchangeRate";
@@ -12,18 +13,26 @@ export default function MainPage() {
   const [favorites, setFavorites] = useState([]);
   const [isFavoritesView, setIsFavoritesView] = useState(false);
   const controls = useAnimation();
-
+  const headerRef = useRef(null);
+  const bodyRef = useRef(document.body);
   useEffect(() => {
     setFilteredCountries(countries);
+
+    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
+    setFavorites(storedFavorites);
   }, [countries]);
 
   const toggleFavorite = (cur_unit) => {
     setFavorites((prevFavorites) => {
+      let updatedFavorites;
       if (prevFavorites.includes(cur_unit)) {
-        return prevFavorites.filter((unit) => unit !== cur_unit);
+        updatedFavorites = prevFavorites.filter((unit) => unit !== cur_unit);
       } else {
-        return [...prevFavorites, cur_unit];
+        updatedFavorites = [...prevFavorites, cur_unit];
       }
+      // 로컬에 저장
+      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      return updatedFavorites;
     });
   };
 
@@ -41,8 +50,8 @@ export default function MainPage() {
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
-    const headerElement = document.querySelector(".header");
-    const bodyElement = document.body;
+    const headerElement = headerRef.current;
+    const bodyElement = bodyRef.current;
 
     if (scrollY > 50) {
       headerElement.classList.add("small");
@@ -62,7 +71,9 @@ export default function MainPage() {
 
   return (
     <div className="mainPage">
-      <div className="header">Exchange Rate Village</div>
+      <div className="header" ref={headerRef}>
+        Exchange Rate Village
+      </div>
       <motion.div
         className="main"
         initial={{ opacity: 0, y: 50 }}

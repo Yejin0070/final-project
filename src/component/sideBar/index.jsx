@@ -7,10 +7,12 @@ export default function SideBar() {
 
   return (
     <div className="sideBar">
-      <h3>Exchange Rate Village</h3>
+      <Link to={"/"} className="sideBarTitle">
+        <h3>Exchange Rate Village</h3>
+      </Link>
       <ul>
         <li className={pathName === "/" ? "active" : ""}>
-          <Link to="/">나라 전체 보기</Link>
+          <Link to={"/"}>나라 전체 보기</Link>
         </li>
         <li className={pathName === `/country/${cur_unit}` ? "active" : ""}>
           <Link to={`/country/${cur_unit}`}>환율 상세 보기</Link>

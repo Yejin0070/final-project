@@ -15,10 +15,12 @@ export default function CountryPage() {
   const [krwValue, setKrwValue] = useState("");
   const [foreignValue, setForeignValue] = useState("");
 
+  //배경색 임시 수정
+  document.body.classList.remove("light");
+
   const handleKrwChange = (e) => {
     const value = parseFloat(e.target.value.replace(/,/g, ""));
     const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
-    // const [value, dealBasR] = useToNumber(e, country);
     setKrwValue(e.target.value);
     if (value && dealBasR) {
       setForeignValue((value / dealBasR).toFixed(2));
@@ -38,9 +40,24 @@ export default function CountryPage() {
     }
   };
 
+  const handleIncrement = (increment) => {
+    const currentForeignValue = parseFloat(foreignValue.replace(/,/g, "")) || 0;
+    const newForeignValue = (currentForeignValue + increment).toFixed(2);
+    setForeignValue(newForeignValue);
+    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+    setKrwValue((newForeignValue * dealBasR).toFixed(2));
+  };
+
+  const handleMultiply = (multiplier) => {
+    const currentForeignValue = parseFloat(foreignValue.replace(/,/g, "")) || 0;
+    const newForeignValue = (currentForeignValue * multiplier).toFixed(2);
+    setForeignValue(newForeignValue);
+    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+    setKrwValue((newForeignValue * dealBasR).toFixed(2));
+  };
+
   useEffect(() => {
     if (country && country.deal_bas_r) {
-      // console.log(country.deal_bas_r);
       const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
       const initialForeignValue = 1; // 외국 통화 단위를 1로 설정
       setForeignValue(initialForeignValue.toString());
@@ -57,11 +74,12 @@ export default function CountryPage() {
   }, []);
 
   if (!country) {
-    // console.log("a");
     return <div>Loading...</div>;
   }
 
-  const foreignCurrencyUnit = country.cur_nm.split(" ")[1];
+  const currencyNameParts = country.cur_nm.split(" ");
+  const foreignCurrencyUnit =
+    currencyNameParts.length > 1 ? currencyNameParts[1] : currencyNameParts[0];
 
   return (
     <div className="countryPage">
@@ -81,7 +99,7 @@ export default function CountryPage() {
         </ul>
       </div>
       <div className="calculator">
-        <p>환율 계산</p>
+        <h2>환율 계산</h2>
         <div className="calculatorContainer">
           <div className="beforeContainer">
             <label>KRW:</label>
@@ -102,6 +120,20 @@ export default function CountryPage() {
               type="number"
             />
             <span> {foreignCurrencyUnit}</span>
+            <div className="addButtonContainer">
+              <button onClick={() => handleIncrement(1)}>+1</button>
+              <button onClick={() => handleIncrement(5)}>+5</button>
+              <button onClick={() => handleIncrement(10)}>+10</button>
+              <button onClick={() => handleMultiply(10)}>x10</button>
+            </div>
+            <div className="subButtonContainer">
+              <button onClick={() => handleIncrement(-1)}>-1</button>
+              <button onClick={() => handleIncrement(-5)}>-5</button>
+              <button onClick={() => handleIncrement(-10)}>-10</button>
+              <button id="divBtn" onClick={() => handleMultiply(0.1)}>
+                %10
+              </button>
+            </div>
           </div>
         </div>
       </div>
