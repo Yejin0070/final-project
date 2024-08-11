@@ -84,7 +84,7 @@ export default function CountryPage() {
   return (
     <div className="countryPage">
       <SideBar curUnit={cur_unit} />
-      <h1>{country.cur_nm}</h1>
+      <h1>🌐 {country.cur_nm}</h1>
       <div className="countryImformationContainer">
         <h2>{country.cur_unit}</h2>
         <ul>
@@ -99,7 +99,7 @@ export default function CountryPage() {
         </ul>
       </div>
       <div className="calculator">
-        <h2>환율 계산</h2>
+        <h2>환율 계산 💶</h2>
         <div className="calculatorContainer">
           <div className="beforeContainer">
             <label>KRW:</label>

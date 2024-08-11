@@ -1,8 +1,9 @@
 /* 제목 */
 .countryPage h1 {
-  margin: 40px;
+  margin: 25px 55px;
   padding: 5px;
   font-size: 2.5em;
+  text-shadow: 5px 5px 5px rgba(133, 171, 236, 0.5);
 }
 
 /* 상세 페이지 */
@@ -14,15 +15,15 @@
   margin: 50px;
   padding: 30px;
   padding-left: 50px;
-  /* background-color: rgba(57, 57, 112, 0.381); */
-  border: 2px solid rgb(170, 226, 226);
+  background-color: rgba(19, 43, 160, 0.1);
+  border: 2px solid #b7c0c9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .countryImformationContainer h2 {
   font-size: 2em;
   margin-bottom: 20px;
-  color: rgb(170, 226, 226);
+  color: #9abddf;
 }
 
 .countryImformationContainer ul {
@@ -42,7 +43,7 @@
 }
 
 .calculator h2 {
-  color: rgb(65, 199, 206);
+  color: #7db0e2;
   font-weight: bold;
 }
 
