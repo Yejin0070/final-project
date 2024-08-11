@@ -37,11 +37,13 @@
 
 .calculator {
   margin: 50px;
-  padding: 15px;
+  padding: 30px 30px 30px 50px;
+  /* border: 1px solid white; */
 }
 
 .calculator h2 {
-  color: rgb(170, 226, 226);
+  color: rgb(65, 199, 206);
+  font-weight: bold;
 }
 
 .calculatorContainer {
@@ -98,15 +100,11 @@
 
 .addButtonContainer button:hover,
 .subButtonContainer button:hover {
-  background-color: rgba(53, 57, 82, 0.5);
+  background-color: rgba(78, 82, 106, 0.7);
 }
 
 .addButtonContainer button:active,
 .subButtonContainer button:active {
   background-color: rgba(146, 152, 186, 0.5);
   border-bottom: 3px solid #7b8de4;
-}
-
-#divBtn {
-  width: 45px;
 }

@@ -33,7 +33,7 @@ body.light {
   pointer-events: none;
 }
 
-.main {
+.mainSearchBar {
   background-color: transparent;
   opacity: 0;
   transform: translateY(50px);
@@ -45,7 +45,7 @@ body.light {
 }
 
 @media (max-width: 560px) {
-  .main {
+  .maimainSearchBarn {
     white-space: nowrap;
     overflow: hidden;
   }
@@ -60,7 +60,7 @@ body.light {
   padding: 20px 0;
 }
 
-input {
+.searchContainer input {
   width: 400px;
   padding: 10px;
   border: 2px solid #ccc;
@@ -70,7 +70,7 @@ input {
   transition: border-color 0.3s;
 }
 
-input:focus {
+.searchContainer input:focus {
   border-color: rgb(0, 8, 50);
 }
 

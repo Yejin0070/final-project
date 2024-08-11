@@ -107,7 +107,7 @@ export default function CountryPage() {
               className="before"
               value={krwValue}
               onChange={handleKrwChange}
-              type="number"
+              type="text"
             />
             <span> 원</span>
           </div>
@@ -117,7 +117,7 @@ export default function CountryPage() {
               className="after"
               value={foreignValue}
               onChange={handleForeignChange}
-              type="number"
+              type="text"
             />
             <span> {foreignCurrencyUnit}</span>
             <div className="addButtonContainer">
@@ -130,9 +130,7 @@ export default function CountryPage() {
               <button onClick={() => handleIncrement(-1)}>-1</button>
               <button onClick={() => handleIncrement(-5)}>-5</button>
               <button onClick={() => handleIncrement(-10)}>-10</button>
-              <button id="divBtn" onClick={() => handleMultiply(0.1)}>
-                %10
-              </button>
+              <button onClick={() => handleMultiply(0.1)}>/10</button>
             </div>
           </div>
         </div>

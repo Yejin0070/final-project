@@ -15,12 +15,31 @@ export default function MainPage() {
   const controls = useAnimation();
   const headerRef = useRef(null);
   const bodyRef = useRef(document.body);
+  const mainContentRef = useRef(null); // mainContent를 가리키는 ref
+  const location = useLocation();
+
   useEffect(() => {
     setFilteredCountries(countries);
 
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
-  }, [countries]);
+
+    const queryParams = new URLSearchParams(location.search);
+    const searchQuery = queryParams.get("search");
+
+    if (searchQuery) {
+      setFilteredCountries(
+        countries.filter(
+          (country) =>
+            country.cur_nm.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            country.cur_unit.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+      if (queryParams.get("searchAfterScroll")) {
+        mainContentRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [countries, location.search]);
 
   const toggleFavorite = (cur_unit) => {
     setFavorites((prevFavorites) => {
@@ -75,7 +94,7 @@ export default function MainPage() {
         Exchange Rate Village
       </div>
       <motion.div
-        className="main"
+        className="mainSearchBar"
         initial={{ opacity: 0, y: 50 }}
         animate={controls}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -83,8 +102,9 @@ export default function MainPage() {
         <SearchBar
           countries={countries}
           setFilteredCountries={setFilteredCountries}
+          isFavoritesView={isFavoritesView}
         />
-        <div className="mainContent">
+        <div className="mainContent" ref={mainContentRef}>
           <div className="favoritesContainer">
             <button
               onClick={showAll}

@@ -3,6 +3,7 @@ import MainPage from "./page/mainPage";
 import CountryPage from "./page/countryPage";
 import GraphPage from "./page/graphPage";
 import Layout from "./component/Layout/layout";
+import NewsFeedPage from "./page/newsFeedPage";
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
           element={
             <Layout>
               <GraphPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/news/:cur_unit"
+          element={
+            <Layout>
+              <NewsFeedPage />
             </Layout>
           }
         />
