@@ -24,20 +24,21 @@ export default function NewsFeedPage() {
       {news && (
         <ul className="news-feed-list">
           {news.map((item, index) => (
-            <li key={index} className="news-feed-item">
-              <a
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="news-feed-title"
-              >
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="news-feed-title"
+            >
+              <li key={index} className="news-feed-item">
                 <span dangerouslySetInnerHTML={{ __html: item.title }} />
-              </a>
-              <p
-                className="news-feed-description"
-                dangerouslySetInnerHTML={{ __html: item.description }}
-              />
-            </li>
+
+                <p
+                  className="news-feed-description"
+                  dangerouslySetInnerHTML={{ __html: item.description }}
+                />
+              </li>
+            </a>
           ))}
         </ul>
       )}
