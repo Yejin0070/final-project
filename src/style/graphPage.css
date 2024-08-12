@@ -3,3 +3,8 @@
   padding: 5px;
   font-size: 2.5em;
 }
+
+.graphContainer {
+  padding-left: 80px;
+  height: 520px;
+}

@@ -791,8 +791,8 @@ export const dummyData = [
       cur_nm: "미국 달러",
     },
   ],
-  //더미데이터 5
   [
+    //더미데이터 5
     {
       result: 1,
       cur_unit: "AED",

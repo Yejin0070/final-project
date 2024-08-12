@@ -1,0 +1,49 @@
+.graphPage h1 {
+  margin: 25px 55px;
+  padding: 5px;
+  font-size: 2.5em;
+  text-shadow: 5px 5px 5px rgba(133, 171, 236, 0.5);
+}
+
+.news-feed-list {
+  list-style-type: none;
+  margin: 50px;
+  padding: 30px;
+  padding-left: 50px;
+}
+
+.news-feed-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: rgba(19, 43, 160, 0.1);
+}
+
+.news-feed-item:hover {
+  box-shadow: 0 4px 8px rgba(255, 251, 251, 0.7);
+}
+
+.news-feed-title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #9abddf;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.news-feed-title:hover {
+  color: #3d75ac;
+}
+
+.news-feed-description {
+  font-size: 14px;
+  color: #e3eff8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.news-feed-description:hover {
+  color: #c7def0;
+}
