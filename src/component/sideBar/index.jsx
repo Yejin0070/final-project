@@ -20,10 +20,14 @@ export default function SideBar() {
             pathName === `/country/${cur_unit}` ? "active" : "inactive"
           }
         >
-          <Link to={`/country/${cur_unit}`}>
-            환율 상세 보기
-            <br />+ 계산하기
-          </Link>
+          <Link to={`/country/${cur_unit}`}>환율상세 보기</Link>
+        </li>
+        <li
+          className={
+            pathName === `/calculator/${cur_unit}` ? "active" : "inactive"
+          }
+        >
+          <Link to={`/calculator/${cur_unit}`}>환율 계산하기</Link>
         </li>
         <li
           className={pathName === `/graph/${cur_unit}` ? "active" : "inactive"}

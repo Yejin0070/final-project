@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import MainPage from "./page/mainPage";
 import CountryPage from "./page/countryPage";
+import CalculatorPage from "./page/calculatorPage";
 import GraphPage from "./page/graphPage";
 import Layout from "./component/Layout/layout";
 import NewsFeedPage from "./page/newsFeedPage";
@@ -15,6 +16,14 @@ function App() {
           element={
             <Layout>
               <CountryPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/calculator/:cur_unit"
+          element={
+            <Layout>
+              <CalculatorPage />
             </Layout>
           }
         />

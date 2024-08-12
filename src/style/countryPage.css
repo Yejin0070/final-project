@@ -1,5 +1,6 @@
 /* 제목 */
 .countryPage h1 {
+  white-space: nowrap;
   margin: 25px 55px;
   padding: 5px;
   font-size: 2.5em;
@@ -34,78 +35,4 @@
 .countryImformationContainer li {
   margin-bottom: 15px;
   font-size: 1.2em;
-}
-
-.calculator {
-  margin: 50px;
-  padding: 30px 30px 30px 50px;
-  /* border: 1px solid white; */
-}
-
-.calculator h2 {
-  color: #7db0e2;
-  font-weight: bold;
-}
-
-.calculatorContainer {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: large;
-}
-
-.calculatorContainer label {
-  display: inline-block;
-  width: 64.1px;
-}
-
-.beforeContainer,
-.afterContainer {
-  width: 400px;
-  padding: 0 20px;
-}
-
-.before,
-.after {
-  width: 200px;
-  margin: 10px;
-  padding: 20px;
-  border: 2px solid #ccc;
-  border-radius: 3px;
-  font-size: 20px;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.before:focus,
-.after:focus {
-  border-color: rgb(0, 8, 50);
-}
-
-.addButtonContainer,
-.subButtonContainer {
-  padding-left: 170px;
-}
-
-.addButtonContainer button,
-.subButtonContainer button {
-  background-color: rgba(0, 0, 0, 0);
-  color: white;
-  font-size: 18px;
-  border: none;
-  border-bottom: 3px solid #ffffff;
-  margin: 8px;
-  padding: 8px;
-  width: 38px;
-}
-
-.addButtonContainer button:hover,
-.subButtonContainer button:hover {
-  background-color: rgba(78, 82, 106, 0.7);
-}
-
-.addButtonContainer button:active,
-.subButtonContainer button:active {
-  background-color: rgba(146, 152, 186, 0.5);
-  border-bottom: 3px solid #7b8de4;
 }

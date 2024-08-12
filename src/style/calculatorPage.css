@@ -1,0 +1,92 @@
+.calculatorPage h1 {
+  white-space: nowrap;
+  margin: 25px 55px;
+  padding: 5px;
+  font-size: 2.5em;
+  text-shadow: 5px 5px 5px rgba(133, 171, 236, 0.5);
+}
+
+.calculator {
+  margin: 25px 70px;
+  /* padding: 30px 30px 30px 50px; */
+  border: 1px solid rgb(135, 153, 174);
+}
+
+.calculator h2 {
+  white-space: nowrap;
+  color: #7db0e2;
+  font-size: 30px;
+  margin: 35px 20px;
+}
+
+.calculatorContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: large;
+}
+
+.calculatorContainer label {
+  display: inline-block;
+  width: 64.1px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.calculatorContainer span {
+  font-size: 25px;
+}
+
+.beforeContainer,
+.afterContainer {
+  white-space: nowrap;
+  width: 400px;
+  padding: 0 20px;
+  margin: 5px;
+}
+
+.before,
+.after {
+  width: 250px;
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  font-size: 40px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.before:focus,
+.after:focus {
+  border-color: rgb(0, 8, 50);
+}
+
+.addButtonContainer,
+.subButtonContainer {
+  padding-left: 170px;
+  width: 400px;
+}
+
+.addButtonContainer button,
+.subButtonContainer button {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-bottom: 3px solid #ffffff;
+  margin: 8px;
+  padding: 8px;
+  width: 38px;
+}
+
+.addButtonContainer button:hover,
+.subButtonContainer button:hover {
+  background-color: rgba(78, 82, 106, 0.7);
+}
+
+.addButtonContainer button:active,
+.subButtonContainer button:active {
+  background-color: rgba(146, 152, 186, 0.5);
+  border-bottom: 3px solid #7b8de4;
+}

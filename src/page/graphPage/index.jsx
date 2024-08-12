@@ -3,7 +3,7 @@ import "../../style/graphPage.css";
 import { useParams } from "react-router-dom";
 import SideBar from "../../component/sideBar";
 import useExchangeRate from "../../hook/useExchangeRate";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { dummyData } from "../../store/static";
 
@@ -73,8 +73,8 @@ export default function GraphPage() {
             data: data.map((d) => d.rate),
             borderColor: "rgba(0, 40, 240, 1)",
             borderWidth: 3,
-            pointBackgroundColor: "rgba(0, 49, 112, 1)",
-            pointBorderColor: "rgba(155, 225, 243, 1)",
+            pointBackgroundColor: "rgba(129, 177, 254, 1)",
+            pointBorderColor: "rgba(199, 220, 255, 1)",
             pointBorderWidth: 1,
             pointRadius: 7,
             pointHoverRadius: 9,
@@ -104,7 +104,7 @@ export default function GraphPage() {
             },
             y: {
               ticks: {
-                color: "#ffffff",
+                color: "#fba7a7",
                 beginAtZero: false,
                 callback: function (value) {
                   return value.toLocaleString();
