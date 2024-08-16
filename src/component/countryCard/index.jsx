@@ -10,9 +10,9 @@ export default function CountryCard({ country, toggleFavorite, isFavorite }) {
   ).deal_bas_r;
   const Rate = ((country.deal_bas_r - yesterdayDeal) / yesterdayDeal) * 100;
   return (
-    <div className="countryCardContainer">
-      <div className="countryCardInformation">
-        <Link to={`/country/${country.cur_unit}`} className="countryItem">
+    <div className="country-card-container">
+      <div className="country-card-Information">
+        <Link to={`/country/${country.cur_unit}`} className="country-item">
           <h3>나라이름 x 통화 이름: {country.cur_nm}</h3>
           <p>통화코드: {country.cur_unit}</p>
           <p>매매 기준율: {country.deal_bas_r}</p>

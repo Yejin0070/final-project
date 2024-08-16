@@ -1,11 +1,11 @@
-.graphPage h1 {
+.graph-page h1 {
   white-space: nowrap;
   margin: 40px;
   padding: 5px;
   font-size: 2.5em;
 }
 
-.graphContainer {
+.graph-container {
   padding-left: 80px;
   height: 520px;
 }

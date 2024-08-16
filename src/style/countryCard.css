@@ -1,4 +1,4 @@
-.countryCardContainer {
+.country-card-container {
   display: flex;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -12,29 +12,29 @@
   box-sizing: border-box;
 }
 
-.countryCardContainer:hover {
+.country-card-container:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.countryItem {
+.country-item {
   text-decoration: none;
   color: inherit;
 }
 
-.countryItem h3 {
+.country-item h3 {
   margin: 0;
   font-size: 1.2em;
   color: #333;
 }
 
-.countryItem p {
+.country-item p {
   margin: 4px 0;
   color: #666;
 }
 
 /* 즐겨찾기 */
 
-.countryCardInformation {
+.country-card-Information {
   width: 85%;
 }
 

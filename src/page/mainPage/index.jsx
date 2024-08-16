@@ -89,12 +89,12 @@ export default function MainPage() {
   }, [controls]);
 
   return (
-    <div className="mainPage">
+    <div className="main-page">
       <div className="header" ref={headerRef}>
         Exchange Rate Village
       </div>
       <motion.div
-        className="mainSearchBar"
+        className="main-search-bar"
         initial={{ opacity: 0, y: 50 }}
         animate={controls}
         transition={{ duration: 0.5, ease: "easeOut" }}
@@ -104,8 +104,8 @@ export default function MainPage() {
           setFilteredCountries={setFilteredCountries}
           isFavoritesView={isFavoritesView}
         />
-        <div className="mainContent" ref={mainContentRef}>
-          <div className="favoritesContainer">
+        <div className="main-content" ref={mainContentRef}>
+          <div className="favorites-container">
             <button
               onClick={showAll}
               className={!isFavoritesView ? "active" : ""}
@@ -119,7 +119,7 @@ export default function MainPage() {
               즐겨찾기
             </button>
           </div>
-          <div className="countryList">
+          <div className="country-list">
             {isFavoritesView && filteredCountries.length === 0 ? (
               <div>즐겨찾기 된 나라가 없습니다</div>
             ) : (

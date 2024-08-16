@@ -11,7 +11,6 @@ export default function CountryPage() {
 
   const country = countries.find((country) => country.cur_unit === cur_unit);
 
-  //배경색 임시 수정
   document.body.classList.remove("light");
 
   useEffect(() => {
@@ -27,10 +26,10 @@ export default function CountryPage() {
   }
 
   return (
-    <div className="countryPage">
+    <div className="country-page">
       <SideBar curUnit={cur_unit} />
       <h1>🌐 {country.cur_nm}</h1>
-      <div className="countryImformationContainer">
+      <div className="country-imformation-container">
         <h2>{country.cur_unit}</h2>
         <ul>
           <li>매매 기준율: {country.deal_bas_r}</li>

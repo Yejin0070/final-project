@@ -118,10 +118,10 @@ export default function GraphPage() {
   }, [country, cur_unit]);
 
   return (
-    <div className="graphPage">
+    <div className="graph-page">
       <SideBar curUnit={cur_unit} />
       <h1>🌐 {country?.cur_nm}</h1>
-      <div className="graphContainer">
+      <div className="graph-container">
         {chartData.labels ? (
           <Line data={chartData} options={chartData.options} />
         ) : (

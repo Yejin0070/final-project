@@ -33,7 +33,7 @@ body.light {
   pointer-events: none;
 }
 
-.mainSearchBar {
+.main-search-bar {
   background-color: transparent;
   opacity: 0;
   transform: translateY(50px);
@@ -45,7 +45,7 @@ body.light {
 }
 
 @media (max-width: 560px) {
-  .maimainSearchBarn {
+  .main-search-bar {
     white-space: nowrap;
     overflow: hidden;
   }
@@ -53,14 +53,14 @@ body.light {
 
 /* 검색바 */
 
-.searchContainer {
+.search-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
 }
 
-.searchContainer input {
+.search-container input {
   width: 400px;
   padding: 10px;
   border: 2px solid #ccc;
@@ -70,11 +70,11 @@ body.light {
   transition: border-color 0.3s;
 }
 
-.searchContainer input:focus {
+.search-container input:focus {
   border-color: rgb(0, 8, 50);
 }
 
-.searchContainer button {
+.search-container button {
   padding: 10px 20px;
   border: 1px solid rgb(0, 8, 50);
   border-radius: 0 5px 5px 0;
@@ -85,12 +85,12 @@ body.light {
   transition: background-color 0.3s, border-color 0.3s;
 }
 
-.searchContainer button:hover {
+.search-container button:hover {
   background-color: rgb(35, 45, 91);
   border-color: rgb(35, 45, 91);
 }
 
-.mainContent {
+.main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -98,11 +98,11 @@ body.light {
 }
 
 /* 즐겨찾기 */
-.favoritesContainer {
+.favorites-container {
   margin: 5px;
 }
 
-.favoritesContainer button {
+.favorites-container button {
   padding: 10px 12px;
   margin: 5px;
   font-size: 17px;
@@ -111,14 +111,14 @@ body.light {
   border: none;
 }
 
-.favoritesContainer button.active {
+.favorites-container button.active {
   font-weight: bold;
   border-bottom: 3px solid #212f59;
 }
 
 /* 나라 리스트 */
 
-.countryList {
+.country-list {
   display: flex;
   flex-direction: column;
   justify-content: center;

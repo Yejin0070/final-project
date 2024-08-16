@@ -39,7 +39,7 @@ export default function NewsFeedPage() {
   }
 
   return (
-    <div className="newsFeedPage">
+    <div className="news-feed-page">
       <SideBar curUnit={cur_unit} />
       <h1>🌐 {country.cur_nm}</h1>
       {loading && <p>Loading...</p>}

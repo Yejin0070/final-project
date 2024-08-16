@@ -51,7 +51,7 @@ export default function SearchBar({
   };
 
   return (
-    <div className={`searchContainer ${className}`}>
+    <div className={`search-container ${className}`}>
       <input
         placeholder="나라/통화를 검색하세요."
         value={searchTerm}

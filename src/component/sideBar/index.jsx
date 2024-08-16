@@ -9,11 +9,11 @@ export default function SideBar() {
   const countries = useExchangeRate();
 
   return (
-    <div className="sideBar">
-      <Link to={"/"} className="sideBarTitle">
+    <div className="side-bar">
+      <Link to={"/"} className="side-bar-title">
         <h3>Exchange Rate Village</h3>
       </Link>
-      <SearchBar className="sideSearchBar" countries={countries} />
+      <SearchBar className="side-search-bar" countries={countries} />
       <ul>
         <li
           className={

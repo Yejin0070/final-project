@@ -1,5 +1,5 @@
 /* 제목 */
-.countryPage h1 {
+.country-page h1 {
   white-space: nowrap;
   margin: 25px 55px;
   padding: 5px;
@@ -9,7 +9,7 @@
 
 /* 상세 페이지 */
 
-.countryImformationContainer {
+.country-imformation-container {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -21,18 +21,18 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.countryImformationContainer h2 {
+.country-imformation-container h2 {
   font-size: 2em;
   margin-bottom: 20px;
   color: #9abddf;
 }
 
-.countryImformationContainer ul {
+.country-imformation-container ul {
   list-style-type: none;
   padding: 0;
 }
 
-.countryImformationContainer li {
+.country-imformation-container li {
   margin-bottom: 15px;
   font-size: 1.2em;
 }

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import useExchangeRate from "../../hook/useExchangeRate";
 import { useParams } from "react-router-dom";
 import SideBar from "../../component/sideBar";
-import useToNumber from "../../hook/useToNumber";
 
 export default function CalculatorPage() {
   const { cur_unit } = useParams();
@@ -68,13 +67,13 @@ export default function CalculatorPage() {
   const foreignCurrencyUnit =
     currencyNameParts.length > 1 ? currencyNameParts[1] : currencyNameParts[0];
   return (
-    <div className="calculatorPage">
+    <div className="calculator-page">
       <SideBar curUnit={cur_unit} />
       <h1>🌐 {country.cur_nm}</h1>
       <div className="calculator">
         <h2>환율 계산 💶</h2>
-        <div className="calculatorContainer">
-          <div className="beforeContainer">
+        <div className="calculator-container">
+          <div className="before-container">
             <label>KRW:</label>
             <input
               className="before"
@@ -84,7 +83,7 @@ export default function CalculatorPage() {
             />
             <span> 원</span>
           </div>
-          <div className="afterContainer">
+          <div className="after-container">
             <label>{country.cur_unit}:</label>
             <input
               className="after"
@@ -93,13 +92,13 @@ export default function CalculatorPage() {
               type="text"
             />
             <span> {foreignCurrencyUnit}</span>
-            <div className="addButtonContainer">
+            <div className="add-button-container">
               <button onClick={() => handleIncrement(1)}>+1</button>
               <button onClick={() => handleIncrement(5)}>+5</button>
               <button onClick={() => handleIncrement(10)}>+10</button>
               <button onClick={() => handleMultiply(10)}>x10</button>
             </div>
-            <div className="subButtonContainer">
+            <div className="sub-button-container">
               <button onClick={() => handleIncrement(-1)}>-1</button>
               <button onClick={() => handleIncrement(-5)}>-5</button>
               <button onClick={() => handleIncrement(-10)}>-10</button>
