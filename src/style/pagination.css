@@ -1,0 +1,41 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  gap: 5px;
+}
+
+.pagination ul {
+  list-style: none;
+  padding: 0;
+  gap: 10px;
+}
+
+.pagination li {
+  display: inline;
+}
+
+.pagination a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  background-color: rgb(0, 8, 50);
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+  background-color: rgb(24, 33, 76);
+  color: #fff;
+}
+
+.pagination .active a {
+  background-color: rgb(45, 57, 112);
+  color: #fff;
+  font-weight: bold;
+}

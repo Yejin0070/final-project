@@ -15,7 +15,7 @@ export default function MainPage() {
   const controls = useAnimation();
   const headerRef = useRef(null);
   const bodyRef = useRef(document.body);
-  const mainContentRef = useRef(null); // mainContent를 가리키는 ref
+  const mainContentRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {

@@ -16,7 +16,7 @@ const useNaverNews = (query) => {
           },
           params: {
             query,
-            display: 30,
+            display: 100,
             start: 1,
             sort: "sim",
           },
