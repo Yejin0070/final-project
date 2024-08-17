@@ -19,32 +19,30 @@ export default function MainPage() {
   const location = useLocation();
 
   useEffect(() => {
-    setFilteredCountries(countries);
+    let filtered = countries;
 
-    const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-    setFavorites(storedFavorites);
+    // 즐겨찾기 필터링
+    if (isFavoritesView) {
+      filtered = filtered.filter((country) =>
+        favorites.includes(country.cur_unit)
+      );
+    }
 
+    // 검색 필터링
     const queryParams = new URLSearchParams(location.search);
     const searchQuery = queryParams.get("search");
-
     if (searchQuery) {
-      const filtered = countries.filter(
+      filtered = filtered.filter(
         (country) =>
           country.cur_nm.toLowerCase().includes(searchQuery.toLowerCase()) ||
           country.cur_unit.toLowerCase().includes(searchQuery.toLowerCase())
       );
+    }
 
-      if (isFavoritesView) {
-        setFilteredCountries(
-          filtered.filter((country) => favorites.includes(country.cur_unit))
-        );
-      } else {
-        setFilteredCountries(filtered);
-      }
+    setFilteredCountries(filtered);
 
-      if (queryParams.get("searchAfterScroll")) {
-        mainContentRef.current.scrollIntoView({ behavior: "smooth" });
-      }
+    if (queryParams.get("searchAfterScroll")) {
+      mainContentRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [countries, location.search, isFavoritesView, favorites]);
 
