@@ -16,6 +16,7 @@ body.light {
   font-weight: bold;
   text-shadow: 5px 5px 7px rgba(133, 171, 236, 0.5);
   width: 100%;
+  min-width: 475px;
   height: 100vh;
   position: fixed;
   top: 0;
