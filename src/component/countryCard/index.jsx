@@ -5,10 +5,15 @@ import useExchangeRateStore from "../../store/store";
 export default function CountryCard({ country, toggleFavorite, isFavorite }) {
   const { yesterdayCountries } = useExchangeRateStore();
   // console.log(yesterdayCountries);
-  const yesterdayDeal = yesterdayCountries.find(
+  const currentDeal = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+  const yesterdayCountry = yesterdayCountries.find(
     (yesterdayCountry) => yesterdayCountry.cur_unit === country.cur_unit
-  ).deal_bas_r;
-  const Rate = ((country.deal_bas_r - yesterdayDeal) / yesterdayDeal) * 100;
+  );
+  const yesterdayDeal = parseFloat(
+    yesterdayCountry.deal_bas_r.replace(/,/g, "")
+  );
+
+  const Rate = ((currentDeal - yesterdayDeal) / yesterdayDeal) * 100;
   return (
     <div className="country-card-container">
       <div className="country-card-Information">

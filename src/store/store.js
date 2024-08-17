@@ -16,16 +16,13 @@ const useExchangeRateStore = create((set) => ({
     // } catch (error) {
     //   console.error("Failed to fetch data:", error);
     // }
-    const currentData = getCurrentDate() % 7;
+
+    const currentDate = getCurrentDate() % 7;
+    const data = dummyData[currentDate];
+
     const yesterdayDate = getYesterdayDate() % 7;
-    const data = dummyData[currentData].map((data) => ({
-      ...data,
-      deal_bas_r: data.deal_bas_r.replace(/,/g, ""),
-    }));
-    const yesterdayData = dummyData[yesterdayDate].map((data) => ({
-      ...data,
-      deal_bas_r: data.deal_bas_r.replace(/,/g, ""),
-    }));
+    const yesterdayData = dummyData[yesterdayDate];
+
     set({ countries: data, yesterdayCountries: yesterdayData });
   },
 }));
