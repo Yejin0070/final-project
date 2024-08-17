@@ -47,12 +47,6 @@ export default function MainPage() {
     if (queryParams.get("searchAfterScroll")) {
       mainContentRef.current.scrollIntoView({ behavior: "smooth" });
     }
-
-    setFilteredCountries(filtered);
-
-    if (queryParams.get("searchAfterScroll")) {
-      mainContentRef.current.scrollIntoView({ behavior: "smooth" });
-    }
   }, [countries, location.search, isFavoritesView]);
 
   const toggleFavorite = (cur_unit) => {
