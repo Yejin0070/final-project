@@ -12,7 +12,6 @@
 .country-imformation-container {
   display: flex;
   flex-direction: column;
-  position: relative;
   min-width: 400px;
   margin: 50px;
   padding: 30px;

@@ -19,59 +19,54 @@ export default function MainPage() {
   const location = useLocation();
 
   useEffect(() => {
-    setFilteredCountries(countries);
-
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
 
+    let filtered = countries;
+
+    // 즐겨찾기 필터링
+    if (isFavoritesView) {
+      filtered = filtered.filter((country) =>
+        storedFavorites.includes(country.cur_unit)
+      );
+    }
+
+    // 검색 필터링
     const queryParams = new URLSearchParams(location.search);
     const searchQuery = queryParams.get("search");
-
     if (searchQuery) {
-      const filtered = countries.filter(
+      filtered = filtered.filter(
         (country) =>
           country.cur_nm.toLowerCase().includes(searchQuery.toLowerCase()) ||
           country.cur_unit.toLowerCase().includes(searchQuery.toLowerCase())
       );
-
-      if (isFavoritesView) {
-        setFilteredCountries(
-          filtered.filter((country) => favorites.includes(country.cur_unit))
-        );
-      } else {
-        setFilteredCountries(filtered);
-      }
-
-      if (queryParams.get("searchAfterScroll")) {
-        mainContentRef.current.scrollIntoView({ behavior: "smooth" });
-      }
     }
-  }, [countries, location.search, isFavoritesView, favorites]);
+
+    setFilteredCountries(filtered);
+
+    if (queryParams.get("searchAfterScroll")) {
+      mainContentRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [countries, location.search, isFavoritesView]);
 
   const toggleFavorite = (cur_unit) => {
     setFavorites((prevFavorites) => {
-      let updatedFavorites;
-      if (prevFavorites.includes(cur_unit)) {
-        updatedFavorites = prevFavorites.filter((unit) => unit !== cur_unit);
-      } else {
-        updatedFavorites = [...prevFavorites, cur_unit];
-      }
+      const updatedFavorites = prevFavorites.includes(cur_unit)
+        ? prevFavorites.filter((unit) => unit !== cur_unit)
+        : [...prevFavorites, cur_unit];
+
       // 로컬에 저장
       localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       return updatedFavorites;
     });
   };
 
-  const showAll = () => {
-    setIsFavoritesView(false);
-    setFilteredCountries(countries);
-  };
-
   const showFavorites = () => {
     setIsFavoritesView(true);
-    setFilteredCountries(
-      countries.filter((country) => favorites.includes(country.cur_unit))
-    );
+  };
+
+  const showAll = () => {
+    setIsFavoritesView(false);
   };
 
   const handleScroll = () => {
