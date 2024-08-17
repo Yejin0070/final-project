@@ -28,18 +28,25 @@ export default function MainPage() {
     const searchQuery = queryParams.get("search");
 
     if (searchQuery) {
-      setFilteredCountries(
-        countries.filter(
-          (country) =>
-            country.cur_nm.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            country.cur_unit.toLowerCase().includes(searchQuery.toLowerCase())
-        )
+      const filtered = countries.filter(
+        (country) =>
+          country.cur_nm.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          country.cur_unit.toLowerCase().includes(searchQuery.toLowerCase())
       );
+
+      if (isFavoritesView) {
+        setFilteredCountries(
+          filtered.filter((country) => favorites.includes(country.cur_unit))
+        );
+      } else {
+        setFilteredCountries(filtered);
+      }
+
       if (queryParams.get("searchAfterScroll")) {
         mainContentRef.current.scrollIntoView({ behavior: "smooth" });
       }
     }
-  }, [countries, location.search]);
+  }, [countries, location.search, isFavoritesView, favorites]);
 
   const toggleFavorite = (cur_unit) => {
     setFavorites((prevFavorites) => {
