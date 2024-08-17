@@ -8,4 +8,5 @@
 .graph-container {
   padding-left: 80px;
   height: 520px;
+  min-width: 900px;
 }

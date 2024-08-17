@@ -33,24 +33,6 @@ body.light {
   pointer-events: none;
 }
 
-.main-search-bar {
-  background-color: transparent;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  padding-top: 100vh;
-  min-height: 100vh;
-  z-index: 0;
-  position: relative;
-}
-
-@media (max-width: 560px) {
-  .main-search-bar {
-    white-space: nowrap;
-    overflow: hidden;
-  }
-}
-
 /* 검색바 */
 
 .search-container {
@@ -90,10 +72,25 @@ body.light {
   border-color: rgb(35, 45, 91);
 }
 
+/* 검색바:메인페이지 */
+
+.main-search-bar {
+  background-color: transparent;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  padding-top: 100vh;
+  min-height: 100vh;
+  min-width: 560px;
+  z-index: 0;
+  position: relative;
+}
+
 .main-content {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 560px;
   align-items: center;
 }
 
@@ -129,6 +126,5 @@ body.light {
   width: 70%;
   padding: 16px;
   box-sizing: border-box;
-  /* 수정중 */
   min-width: 551px;
 }

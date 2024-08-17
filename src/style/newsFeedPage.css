@@ -11,6 +11,7 @@
   margin: 50px;
   padding: 30px;
   padding-left: 50px;
+  min-width: 400px;
 }
 
 .news-feed-item {
