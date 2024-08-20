@@ -12,50 +12,49 @@ export default function CalculatorPage() {
   const [krwValue, setKrwValue] = useState("");
   const [foreignValue, setForeignValue] = useState("");
 
+  const parseInputValue = (value) => parseFloat(value.replace(/,/g, "")) || 0;
+  const formatCurrencyValue = (value) => value.toFixed(2);
+
   const handleKrwChange = (e) => {
-    const value = parseFloat(e.target.value.replace(/,/g, ""));
-    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+    const value = parseInputValue(e.target.value);
+    const dealBasR = parseInputValue(country.deal_bas_r);
     setKrwValue(e.target.value);
-    if (value && dealBasR) {
-      setForeignValue((value / dealBasR).toFixed(2));
-    } else {
-      setForeignValue("");
-    }
+    setForeignValue(value ? formatCurrencyValue(value / dealBasR) : "");
   };
 
   const handleForeignChange = (e) => {
-    const value = parseFloat(e.target.value.replace(/,/g, ""));
-    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+    const value = parseInputValue(e.target.value);
+    const dealBasR = parseInputValue(country.deal_bas_r);
     setForeignValue(e.target.value);
-    if (value && dealBasR) {
-      setKrwValue((value * dealBasR).toFixed(2));
-    } else {
-      setKrwValue("");
-    }
+    setKrwValue(value ? formatCurrencyValue(value * dealBasR) : "");
   };
 
   const handleIncrement = (increment) => {
-    const currentForeignValue = parseFloat(foreignValue.replace(/,/g, "")) || 0;
-    const newForeignValue = (currentForeignValue + increment).toFixed(2);
+    const currentForeignValue = parseInputValue(foreignValue);
+    const newForeignValue = formatCurrencyValue(
+      currentForeignValue + increment
+    );
     setForeignValue(newForeignValue);
-    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
-    setKrwValue((newForeignValue * dealBasR).toFixed(2));
+    const dealBasR = parseInputValue(country.deal_bas_r);
+    setKrwValue(formatCurrencyValue(newForeignValue * dealBasR));
   };
 
   const handleMultiply = (multiplier) => {
-    const currentForeignValue = parseFloat(foreignValue.replace(/,/g, "")) || 0;
-    const newForeignValue = (currentForeignValue * multiplier).toFixed(2);
+    const currentForeignValue = parseInputValue(foreignValue);
+    const newForeignValue = formatCurrencyValue(
+      currentForeignValue * multiplier
+    );
     setForeignValue(newForeignValue);
-    const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
-    setKrwValue((newForeignValue * dealBasR).toFixed(2));
+    const dealBasR = parseInputValue(country.deal_bas_r);
+    setKrwValue(formatCurrencyValue(newForeignValue * dealBasR));
   };
 
   useEffect(() => {
     if (country && country.deal_bas_r) {
-      const dealBasR = parseFloat(country.deal_bas_r.replace(/,/g, ""));
+      const dealBasR = parseInputValue(country.deal_bas_r);
       const initialForeignValue = 1; // 외국 통화 단위를 1로 설정
       setForeignValue(initialForeignValue.toString());
-      setKrwValue((initialForeignValue * dealBasR).toFixed(2));
+      setKrwValue(formatCurrencyValue(initialForeignValue * dealBasR));
     }
   }, [country]);
 
@@ -73,20 +72,20 @@ export default function CalculatorPage() {
       <div className="calculator">
         <h2>환율 계산 💶</h2>
         <div className="calculator-container">
-          <div className="before-container">
+          <div className="krw-container">
             <label>KRW:</label>
             <input
-              className="before"
+              className="krw"
               value={krwValue}
               onChange={handleKrwChange}
               type="text"
             />
             <span> 원</span>
           </div>
-          <div className="after-container">
+          <div className="foreign-container">
             <label>{country.cur_unit}:</label>
             <input
-              className="after"
+              className="foreign"
               value={foreignValue}
               onChange={handleForeignChange}
               type="text"

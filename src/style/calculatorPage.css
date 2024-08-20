@@ -38,16 +38,16 @@
   font-size: 25px;
 }
 
-.before-container,
-.after-container {
+.krw-container,
+.foreign-container {
   white-space: nowrap;
   width: 400px;
   padding: 0 20px;
   margin: 5px;
 }
 
-.before,
-.after {
+.krw,
+.foreign {
   width: 250px;
   margin: 10px;
   padding: 20px;
@@ -58,8 +58,8 @@
   transition: border-color 0.3s;
 }
 
-.before:focus,
-.after:focus {
+.krw:focus,
+.foreign:focus {
   border-color: rgb(0, 8, 50);
 }
 
