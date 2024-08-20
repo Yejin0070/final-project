@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SearchBar({
-  countries,
-  setFilteredCountries,
-  isFavoritesView,
-  className,
-}) {
+export default function SearchBar({ className }) {
   const [searchTerm, setSearchTerm] = useState("");
-  const favorites = JSON.parse(localStorage.getItem("favorites"));
   const navigate = useNavigate();
 
   const handleSearchChange = (e) => {
@@ -16,37 +10,12 @@ export default function SearchBar({
   };
 
   const handleSearchClick = () => {
-    if (setFilteredCountries) {
-      if (isFavoritesView) {
-        setFilteredCountries(
-          countries
-            .filter((country) => favorites.includes(country.cur_unit))
-            .filter(
-              (country) =>
-                country.cur_nm
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase()) ||
-                country.cur_unit
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase())
-            )
-        );
-      } else {
-        setFilteredCountries(
-          countries.filter(
-            (country) =>
-              country.cur_nm.toLowerCase().includes(searchTerm.toLowerCase()) ||
-              country.cur_unit.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-        );
-      }
-    }
     navigate(`/?search=${searchTerm}&searchAfterScroll=true`);
   };
 
   const onSubmitSearch = (e) => {
     if (e.key === "Enter") {
-      handleSearchClick();
+      navigate(`/?search=${searchTerm}&searchAfterScroll=true`);
     }
   };
 

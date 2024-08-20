@@ -24,14 +24,12 @@ export default function MainPage() {
 
     let filtered = countries;
 
-    // 즐겨찾기 필터링
     if (isFavoritesView) {
       filtered = filtered.filter((country) =>
         storedFavorites.includes(country.cur_unit)
       );
     }
 
-    // 검색 필터링
     const queryParams = new URLSearchParams(location.search);
     const searchQuery = queryParams.get("search");
     if (searchQuery) {
@@ -55,7 +53,6 @@ export default function MainPage() {
         ? prevFavorites.filter((unit) => unit !== cur_unit)
         : [...prevFavorites, cur_unit];
 
-      // 로컬에 저장
       localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
       return updatedFavorites;
     });
