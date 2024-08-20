@@ -46,13 +46,13 @@ export default function NewsFeedPage() {
       {error && <p>Error: {error.message}</p>}
       {currentFeed && (
         <ul className="news-feed-list">
-          {currentFeed.map((item, index) => (
+          {currentFeed.map((item) => (
             <a
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
               className="news-feed-title"
-              key={index}
+              key={item.link}
             >
               <li className="news-feed-item">
                 <span dangerouslySetInnerHTML={{ __html: item.title }} />

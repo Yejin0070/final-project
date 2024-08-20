@@ -15,6 +15,7 @@ export default function CalculatorPage() {
   const parseInputValue = (value) => parseFloat(value.replace(/,/g, "")) || 0;
   const formatCurrencyValue = (value) => value.toFixed(2);
 
+  //환율 변환
   const handleKrwChange = (e) => {
     const value = parseInputValue(e.target.value);
     const dealBasR = parseInputValue(country.deal_bas_r);
@@ -29,6 +30,7 @@ export default function CalculatorPage() {
     setKrwValue(value ? formatCurrencyValue(value * dealBasR) : "");
   };
 
+  //계산 버튼
   const handleIncrement = (increment) => {
     const currentForeignValue = parseInputValue(foreignValue);
     const newForeignValue = formatCurrencyValue(
