@@ -14,34 +14,23 @@ function App() {
         <Route
           path="/country/:cur_unit"
           element={
-            <Layout>
-              <CountryPage />
-            </Layout>
+            // <Layout>
+            //   <CountryPage />
+            // </Layout>
+            <Layout children={<CountryPage />} />
           }
         />
         <Route
           path="/calculator/:cur_unit"
-          element={
-            <Layout>
-              <CalculatorPage />
-            </Layout>
-          }
+          element={<Layout children={<CalculatorPage />} />}
         />
         <Route
           path="/graph/:cur_unit"
-          element={
-            <Layout>
-              <GraphPage />
-            </Layout>
-          }
+          element={<Layout children={<GraphPage />} />}
         />
         <Route
           path="/news/:cur_unit"
-          element={
-            <Layout>
-              <NewsFeedPage />
-            </Layout>
-          }
+          element={<Layout children={<NewsFeedPage />} />}
         />
       </Routes>
     </Router>

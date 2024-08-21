@@ -3,7 +3,6 @@ import "../../style/countryPage.css";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import useExchangeRate from "../../hook/useExchangeRate";
-import SideBar from "../../component/sideBar";
 
 export default function CountryPage() {
   const { cur_unit } = useParams();
@@ -27,7 +26,6 @@ export default function CountryPage() {
 
   return (
     <div className="country-page">
-      <SideBar curUnit={cur_unit} />
       <h1>🌐 {country.cur_nm}</h1>
       <div className="country-imformation-container">
         <h2>{country.cur_unit}</h2>

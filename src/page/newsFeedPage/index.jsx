@@ -2,7 +2,6 @@ import "../../style/common.css";
 import "../../style/newsFeedPage.css";
 import "../../style/pagination.css";
 import { useParams } from "react-router-dom";
-import SideBar from "../../component/sideBar";
 import useExchangeRate from "../../hook/useExchangeRate";
 import useNaverNews from "../../hook/useNaverNews";
 import { useEffect, useState } from "react";
@@ -40,7 +39,6 @@ export default function NewsFeedPage() {
 
   return (
     <div className="news-feed-page">
-      <SideBar curUnit={cur_unit} />
       <h1>🌐 {country.cur_nm}</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}

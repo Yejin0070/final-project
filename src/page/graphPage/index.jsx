@@ -1,7 +1,6 @@
 import "../../style/common.css";
 import "../../style/graphPage.css";
 import { useParams } from "react-router-dom";
-import SideBar from "../../component/sideBar";
 import useExchangeRate from "../../hook/useExchangeRate";
 import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
@@ -119,7 +118,6 @@ export default function GraphPage() {
 
   return (
     <div className="graph-page">
-      <SideBar curUnit={cur_unit} />
       <h1>🌐 {country?.cur_nm}</h1>
       <div className="graph-container">
         {chartData.labels ? (

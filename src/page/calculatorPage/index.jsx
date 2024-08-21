@@ -3,7 +3,6 @@ import "../../style/calculatorPage.css";
 import { useState, useEffect } from "react";
 import useExchangeRate from "../../hook/useExchangeRate";
 import { useParams } from "react-router-dom";
-import SideBar from "../../component/sideBar";
 
 export default function CalculatorPage() {
   const { cur_unit } = useParams();
@@ -69,7 +68,6 @@ export default function CalculatorPage() {
     currencyNameParts.length > 1 ? currencyNameParts[1] : currencyNameParts[0];
   return (
     <div className="calculator-page">
-      <SideBar curUnit={cur_unit} />
       <h1>🌐 {country.cur_nm}</h1>
       <div className="calculator">
         <h2>환율 계산 💶</h2>
