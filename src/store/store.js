@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { dummyData } from "./static";
+// 주석은 API 사용 코드 (더미데이터는 임시)
 // import axios from "axios";
 
 const useExchangeRateStore = create((set) => ({
@@ -8,11 +9,18 @@ const useExchangeRateStore = create((set) => ({
   fetchData: async () => {
     // try {
     //   const currentDate = getCurrentDate();
-    //   const response = await axios.post("http://localhost:3001/api/exchange", {
+    //   const yesterdayDate = getYesterdayDate();
+    // 오늘 환율
+    //   const currentResponse  = await axios.post("http://localhost:3001/api/exchange", {
     //     searchdate: currentDate,
     //     authkey: "4pnxrKwL9nYsl6PqcrWElH1QQlj1f2Nk",
     //   });
-    //   set({ countries: response.data });
+    // 어제 환율
+    //   const yesterdayResponse = await axios.post("http://localhost:3001/api/exchange", {
+    //     searchdate: yesterdayDate,
+    //     authkey: "4pnxrKwL9nYsl6PqcrWElH1QQlj1f2Nk",
+    //   });
+    //   set({ countries: currentResponse.data, yesterdayCountries: yesterdayResponse.data });
     // } catch (error) {
     //   console.error("Failed to fetch data:", error);
     // }
