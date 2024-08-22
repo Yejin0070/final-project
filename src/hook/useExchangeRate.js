@@ -6,8 +6,23 @@ export default function useExchangeRate() {
 
   useEffect(() => {
     fetchData();
-    let interval = setInterval(fetchData, 24 * 60 * 60 * 1000); //24시간
-    return () => clearInterval(interval);
+
+    const now = new Date();
+    const nextMidnight = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate() + 1,
+      0,
+      0,
+      0
+    );
+    const timeUntilMidnight = nextMidnight - now;
+
+    const timeout = setTimeout(() => {
+      fetchData();
+    }, timeUntilMidnight); // 자정에 데이터 갱신
+
+    return () => clearTimeout(timeout);
   }, [fetchData]);
 
   return countries;
