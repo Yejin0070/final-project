@@ -11,8 +11,8 @@ const useNaverNews = (query) => {
       try {
         const response = await axios.get("/v1/search/news.json", {
           headers: {
-            "X-Naver-Client-Id": "RdL6pftIupoXG920Saqc",
-            "X-Naver-Client-Secret": "z_19seQgMz",
+            "X-Naver-Client-Id": process.env.REACT_APP_NAVER_API_ID,
+            "X-Naver-Client-Secret": process.env.REACT_APP_NAVER_API_KEY,
           },
           params: {
             query,

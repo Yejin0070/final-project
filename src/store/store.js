@@ -13,12 +13,12 @@ const useExchangeRateStore = create((set) => ({
     // 오늘 환율
     //   const currentResponse  = await axios.post("http://localhost:3001/api/exchange", {
     //     searchdate: currentDate,
-    //     authkey: "4pnxrKwL9nYsl6PqcrWElH1QQlj1f2Nk",
+    //     authkey: process.env.REACT_APP_RATE_API_KEY,
     //   });
     // 어제 환율
     //   const yesterdayResponse = await axios.post("http://localhost:3001/api/exchange", {
     //     searchdate: yesterdayDate,
-    //     authkey: "4pnxrKwL9nYsl6PqcrWElH1QQlj1f2Nk",
+    //     authkey: process.env.REACT_APP_RATE_API_KEY,
     //   });
     //   set({ countries: currentResponse.data, yesterdayCountries: yesterdayResponse.data });
     // } catch (error) {
