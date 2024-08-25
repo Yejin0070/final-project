@@ -23,7 +23,13 @@ export default function CountryCard({ country, toggleFavorite, isFavorite }) {
           <p>매매 기준율: {country.deal_bas_r}</p>
           <p>
             등락률:{" "}
-            {Rate.toFixed(2) > 0 ? `+${Rate.toFixed(2)}` : Rate.toFixed(2)}%
+            <span
+              className={
+                Rate.toFixed(2) > 0 ? "positive-rate" : "negative-rate"
+              }
+            >
+              {Rate.toFixed(2) > 0 ? `+${Rate.toFixed(2)}` : Rate.toFixed(2)}%
+            </span>
           </p>
         </Link>
       </div>
